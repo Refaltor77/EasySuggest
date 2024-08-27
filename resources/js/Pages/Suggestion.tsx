@@ -33,7 +33,7 @@ export default function Suggestion({auth, suggestion, hasVoted})
     function timeAgo(isoDate) {
         const reviewDate = new Date(isoDate);
         const currentDate = new Date();
-
+        // @ts-ignore
         const secondsAgo = Math.floor((currentDate - reviewDate) / 1000);
 
         if (secondsAgo < 60) {

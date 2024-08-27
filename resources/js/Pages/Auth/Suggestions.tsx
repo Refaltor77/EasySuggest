@@ -1,10 +1,25 @@
 import {Head, Link} from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import {PageProps} from "@/types";
+import {useState} from "react";
 
-export default function Suggestions({auth, suggestions}: PageProps)
+export default function Suggestions({auth, suggestions})
 {
+    interface User {
+        name: string,
+        email: string
+    }
+    interface Suggestion {
+        title: string;
+        description: string;
+        user: User;
+        id: number;
+        vote_for_count: number;
+        vote_no_count: number;
+        user_id: number;
+    }
 
+    const [allSuggestions, setAllSuggestions] = useState<Suggestion[]>(suggestions);
 
     return (
         <AuthenticatedLayout
@@ -17,7 +32,7 @@ export default function Suggestions({auth, suggestions}: PageProps)
                 <div className="px-4">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className={"flex flex-col w-full gap-2 p-4"}>
-                            {suggestions.map((suggestion) => (
+                            {allSuggestions.map(suggestion => (
                                 <article
                                     className={"p-4 border border-gray-300 rounded-lg flex justify-between items-center shadow-md"}>
                                     <div className={"flex flex-col w-2/3"}>

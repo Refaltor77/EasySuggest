@@ -1,7 +1,8 @@
 import { SVGAttributes } from 'react';
 
-export default function ApplicationLogo(props: SVGAttributes<SVGElement>) {
+export default function ApplicationLogo() {
     return (
+        // @ts-ignore
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500"
              zoomAndPan="magnify" viewBox="0 0 375 74.999997" height="100" preserveAspectRatio="xMidYMid meet"
              version="1.0">

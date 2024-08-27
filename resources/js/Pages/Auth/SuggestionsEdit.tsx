@@ -17,7 +17,9 @@ import {data} from "autoprefixer";
 export default function SuggestionsEdit({auth, suggestion}: PageProps)
 {
     const { data, setData, post, processing, errors, reset } = useForm({
+        // @ts-ignore
         title: suggestion.title,
+        // @ts-ignore
         content: suggestion.description
     });
 
@@ -26,6 +28,7 @@ export default function SuggestionsEdit({auth, suggestion}: PageProps)
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
+        // @ts-ignore
         post('/dashboard/suggestions/update/' + suggestion.id, {
             onFinish: (data) => {
                 setCreate(true);
